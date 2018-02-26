@@ -1,45 +1,37 @@
-function ping(input) {
-  for (var i = 1; i <= input; i++) {
-    if ((i % 3 === 0) && (i % 5 === 0)) {
+var pingArray = [];
 
-      $(".output").append("<li>" + "pingpong" + "</li>");
-
-    } else if (i % 3 === 0) {
-
-      $(".output").append("<li>" + "ping" + "</li>");
-    } else if (i % 5 === 0) {
-
-      $(".output").append("<li>" + "pong" + "</li>");
-    } else {
-
-      $(".output").append("<li>" + i + "</li>");
+function pingPong(input) {
+  // set limit for input
+  if (input <= 100) {
+    for (var i = 1; i <= input; i++) {
+      if ((i % 3 === 0) && (i % 5 === 0)) {
+        console.log("pingpong");
+        pingArray.push("pingpong")
+      } else if (i % 3 === 0) {
+        console.log("ping");
+        pingArray.push("ping");
+      } else if (i % 5 === 0) {
+        console.log("pong");
+        pingArray.push("pong");
+      } else {
+        console.log(i);
+        pingArray.push(i)
+      }
     }
-  } //end of for
+  } else {
+    alert("enter number less than or equal to 100")
+  }
 }
-//call the function
+
 
 $(document).ready(function() {
-  //gather user input
-  //var input=parseInt(prompt("Enter the number"));
-  //create a function
-  $("#form").submit(function() {
-    var input = $("#submit").val();
-    ping(input);
-
+  $('form#pingpong').submit(function(event) {
     event.preventDefault();
+    var input = $('input#ping').val();
+    pingPong(input);
+
+    pingArray.forEach(function(elements) {
+      $('ul#list').append("<li>" + elements + "</li>");
+    });
   });
 });
-
-/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-}
-
-/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
-  document.body.style.backgroundColor = "white";
-}
