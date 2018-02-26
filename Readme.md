@@ -1,7 +1,5 @@
 # PingPong
 
-this Web page contains a game that shows the multiples of 3,5 and 15\. its counts up numbers after the user gives their input and identifies these multiples.
-
 # by Richard Willie
 
 # Description
